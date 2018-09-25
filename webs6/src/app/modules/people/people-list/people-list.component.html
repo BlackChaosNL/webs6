@@ -1,0 +1,10 @@
+<ul class="list-group">
+  <li *ngFor="let person of people | async" class=" list-group-item">
+	  <a (click)="removeItem(person.key)">
+		  <span class="btn btn-default bg-danger text-white glyphicon glyphicon-remove" ></span>
+	  </a>&nbsp;
+	  <span class="text-md">{{ person.name }} {{ person.surname }}</span>
+  </li>
+  <br >
+  <add-person></add-person>
+</ul>

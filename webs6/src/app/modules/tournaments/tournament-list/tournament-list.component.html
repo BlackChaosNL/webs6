@@ -1,0 +1,11 @@
+<div class="list-group">
+		<a (click)="resolve(tournament.key)" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let tournament of tournaments | async">
+			<div class="d-flex w-100 justify-content-between">
+				<h5 class="mb-1">{{ tournament.name }}</h5>
+				<small>Due {{tournament.date | date}}</small>
+			</div>
+			<p class="mb-1">
+				Tournament Type: {{ (tournament.resolvedtype | async)?.name }}<br />
+			</p>
+	  </a>
+</div>
