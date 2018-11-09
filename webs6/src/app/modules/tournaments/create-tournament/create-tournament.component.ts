@@ -14,31 +14,31 @@ import { TournamentPersonService } from '../../../services/tournament-person.ser
   templateUrl: './create-tournament.component.html'
 })
 export class CreateTournamentComponent implements OnInit {
-	tournaments: Observable<any[]>;
-	types: Observable<any[]>;
-	people: Observable<any[]>;
+  tournaments: Observable<any[]>;
+  types: Observable<any[]>;
+  people: Observable<any[]>;
 
-	newTournament: Tournament = new Tournament();
-	selectedPeople: string[];
+  newTournament: Tournament = new Tournament();
+  selectedPeople: string[];
 
-	constructor(private ps: TournamentService,
-		private type: TournamentTypeService,
-		private users: PeopleService,
-		private subscribe: TournamentPersonService) {}
+  constructor(private ps: TournamentService,
+    private type: TournamentTypeService,
+    private users: PeopleService,
+    private subscribe: TournamentPersonService) { }
 
-	ngOnInit() {
-		this.tournaments = this.ps.getAll();
-		this.types = this.type.getAll();
-		this.people = this.users.getAll();
-	}
+  ngOnInit() {
+    this.tournaments = this.ps.getAll();
+    this.types = this.type.getAll();
+    this.people = this.users.getAll();
+  }
 
-	resolve() {
-		// TODO: Check if invalid values are given
-		const value = this.ps.Add(this.newTournament);
-		console.log(this.selectedPeople);
-		for(var i = 0; i < this.selectedPeople.length; i++) {
-			this.subscribe.Add(new TournamentPerson(value, this.selectedPeople[i]));
-		}
-		this.newTournament = new Tournament();
-	}
+  resolve() {
+    // TODO: Check if invalid values are given
+    const value = this.ps.Add(this.newTournament);
+    console.log(this.selectedPeople);
+    for (var i = 0; i < this.selectedPeople.length; i++) {
+      this.subscribe.Add(new TournamentPerson(value, this.selectedPeople[i]));
+    }
+    this.newTournament = new Tournament();
+  }
 }

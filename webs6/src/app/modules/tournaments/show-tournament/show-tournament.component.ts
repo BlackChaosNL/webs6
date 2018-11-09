@@ -29,7 +29,7 @@ export class ShowTournamentComponent implements OnInit {
     this.details = new Tournament();
   }
 
-	ngOnInit() {
+  ngOnInit() {
     this.dataSharingService.getTournament().subscribe(item => {
       this.key = item;
 
@@ -51,7 +51,7 @@ export class ShowTournamentComponent implements OnInit {
         .getAllByTournament(item)
         ;
     });
-	}
+  }
 
   resolve(): void {
     this.tournamentService.Edit(this.key, this.details);

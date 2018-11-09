@@ -33,7 +33,7 @@ export class EditTournamentComponent implements OnInit {
     this.people = this.ps.getAll();
     this.details = new Tournament();
     this.ds.getTournament().subscribe(item => {
-      if(item != null) {
+      if (item != null) {
         this.key = item;
         this.subscribedPeople = this.pt.getAllByTournament(item);
         this.ts.getSingleItem(item).subscribe(i => {
@@ -45,18 +45,18 @@ export class EditTournamentComponent implements OnInit {
 
   resolve(): void {
     this.ts.Edit(this.key, this.details);
-  	for(var item in this.removePeople) {
-  		this.pt.DeleteSpecificPersonFromTournament(this.key, this.removePeople[item]);
-  	}
+    for (var item in this.removePeople) {
+      this.pt.DeleteSpecificPersonFromTournament(this.key, this.removePeople[item]);
+    }
 
     for (var item in this.selectedPeople) {
       this.pt.Add(new TournamentPerson(this.key, this.selectedPeople[item]));
     }
   }
 
-  remove() : void {
-	  this.details = new Tournament();
-	  this.ds.setTournament(null);
-	  this.ts.Delete(this.key);
+  remove(): void {
+    this.details = new Tournament();
+    this.ds.setTournament(null);
+    this.ts.Delete(this.key);
   }
 }

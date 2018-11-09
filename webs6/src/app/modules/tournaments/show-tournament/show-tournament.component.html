@@ -2,7 +2,7 @@
 	<div class="col">
 		<div class="card text-center">
 			<div class="card-header">
-        Available tournaments
+				Available tournaments
 			</div>
 
 			<div class="card-body">
@@ -22,22 +22,21 @@
 
 				<div class="form-group">
 					<label class="mr-sm-2" for="date">Date</label>
-          <input type="text" class="form-control-plaintext" readonly id="date"
-					  [(ngModel)]="details.date" date="date">
+					<input type="text" class="form-control-plaintext" readonly id="date" [(ngModel)]="details.date" date="date">
 				</div>
 
 				<div class="form-group">
 					<label class="mr-sm-2" for="type">Type</label>
-          <input type="text" class="form-control-plaintext" readonly id="type" value="{{ type?.name }}">
+					<input type="text" class="form-control-plaintext" readonly id="type" value="{{ type?.name }}">
 				</div>
 
 				<div class="form-group">
 					<label for="users">Participants</label>
-          <ul>
-            <li *ngFor="let p of participants | async">
-              {{ (p.resolvedperson | async)?.name }} {{ (p.resolvedperson | async)?.surname }}
-            </li>
-          </ul>
+					<ul>
+						<li *ngFor="let p of participants | async">
+							{{ (p.resolvedperson | async)?.name }} {{ (p.resolvedperson | async)?.surname }}
+						</li>
+					</ul>
 				</div>
 
 			</div>

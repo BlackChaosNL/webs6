@@ -10,14 +10,14 @@ import { DataSharingService } from '../../../services/shared-data.service';
   templateUrl: './tournament-list.component.html'
 })
 export class TournamentListComponent implements OnInit {
-	tournaments: Observable<any[]> = this.ps.getAll();
+  tournaments: Observable<any[]> = this.ps.getAll();
 
-	constructor(private ps: TournamentService, private ds: DataSharingService) {}
+  constructor(private ps: TournamentService, private ds: DataSharingService) { }
 
-	ngOnInit() {
-	}
+  ngOnInit() {
+  }
 
-	resolve(item: string) : void {
-		this.ds.setTournament(item);
-	}
+  resolve(item: string): void {
+    this.ds.setTournament(item);
+  }
 }

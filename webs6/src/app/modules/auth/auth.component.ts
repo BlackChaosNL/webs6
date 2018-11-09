@@ -38,12 +38,12 @@ export class AuthComponent implements OnInit {
         this.session.set("auth.name", data.name);
 
         // Redirect?
-        this.router.navigate([ "/" ]);
+        this.router.navigate(["/"]);
       })
       ;
   }
 
-  private getPlatform (
+  private getPlatform(
     name: string
   ) {
     if (name == "google") {
