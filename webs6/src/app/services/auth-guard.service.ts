@@ -10,12 +10,12 @@ import {
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor (
+  constructor(
     private router: Router,
     private session: SessionStorageService
   ) { }
 
-  canActivate () {
+  canActivate() {
     let id = this.session.get("auth.id");
     let token = this.session.get("auth.token");
 
@@ -27,7 +27,7 @@ export class AuthGuard implements CanActivate {
 
     this.session.set("auth.redirect", this.router.url);
 
-    this.router.navigate([ "/auth" ], {
+    this.router.navigate(["/auth"], {
       queryParams: {
         // TODO: This currently seems to always redirect to /
         for: encodeUrl(this.router.url)
@@ -35,7 +35,7 @@ export class AuthGuard implements CanActivate {
     });
   }
 
-  private verifyAuth (
+  private verifyAuth(
     id: string,
     token: string
   ) {

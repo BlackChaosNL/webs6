@@ -20,13 +20,11 @@ const routes: Routes = [
   {
     path: 'tournament',
     component: ShowTournamentComponent,
-    canActivate: [AuthGuard],
-    children: [
-      { path: '/edit', component: EditTournamentComponent },
-      { path: '/create', component: CreateTournamentComponent },
-      { path: '/:id/view', component: ShowTournamentComponent },
-    ]
-  }
+    canActivate: [AuthGuard]
+  },
+  { path: 'tournament/edit', component: EditTournamentComponent },
+  { path: 'tournament/create', component: CreateTournamentComponent },
+  { path: 'tournament/:id/view', component: ShowTournamentComponent },
 ];
 
 @NgModule({
