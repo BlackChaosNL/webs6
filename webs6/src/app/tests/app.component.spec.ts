@@ -3,6 +3,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {AppComponent} from '../app.component';
 import {WebStorageModule} from "ngx-store";
 import {SessionStorageService} from "ngx-store";
+import {assertEqual} from "@angular/core/src/render3/assert";
 
 describe('Main App (AppComponent)', () => {
     beforeEach(async(() => {
@@ -32,6 +33,5 @@ describe('Main App (AppComponent)', () => {
 
     it("should have a router added", async(() => {
         const fixture = TestBed.createComponent(AppComponent);
-        fixture.componentInstance.test();
     }));
 });

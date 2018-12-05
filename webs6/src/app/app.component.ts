@@ -11,12 +11,6 @@ export class AppComponent {
 
     constructor(private session: SessionStorageService) {
         this.userName = this.session.get("auth.name") || "guest";
-        // Date.prototype.toCustomISOString = function () {
-        //   return this.getFullYear() + '-' + (this.getMonth() + 1) + '-' + (this.getDate()) +
-        //       'T' + this.getHours() + ':' + (this.getUTCMinutes() > 9 ? this.getUTCMinutes() : '0' + this.getUTCMinutes());
-        // }
-
-
         Date.prototype.toCustomISOString = function () {
             return this.getFullYear() + '-' +
                 (this.getMonth() > 9 ? this.getMonth() : '0' + (this.getMonth() + 1)) + '-' +
@@ -24,9 +18,5 @@ export class AppComponent {
                 'T' + (this.getHours() > 9 ? this.getHours() : '0' + this.getHours()) +
                 ':' + (this.getUTCMinutes() > 9 ? this.getUTCMinutes() : '0' + this.getUTCMinutes());
         }
-    }
-
-    test(){
-
     }
 }
