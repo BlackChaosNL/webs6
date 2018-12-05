@@ -15,6 +15,11 @@ import { EditTournamentComponent } from './edit-tournament/edit-tournament.compo
 import { ShowTournamentComponent } from './show-tournament/show-tournament.component';
 
 import { AuthGuard } from "../../services/auth-guard.service";
+import {PouleViewComponent} from "./tournament-views/poule-view/poule-view.component";
+import {KnockoutViewComponent} from "./tournament-views/knockout-view/knockout-view.component";
+import {GeneratorService} from "../../services/generator.service";
+import {TournamentViewHostDirective} from "../../directives/tournament-view-host.directive";
+import {TournamentViewComponent} from "./tournament-views/tournament-view/tournament-view.component";
 
 const routes: Routes = [
   {
@@ -33,6 +38,10 @@ const routes: Routes = [
     CreateTournamentComponent,
     EditTournamentComponent,
     ShowTournamentComponent,
+    TournamentViewComponent,
+    PouleViewComponent,
+    KnockoutViewComponent,
+    TournamentViewHostDirective,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -40,12 +49,21 @@ const routes: Routes = [
     CommonModule
   ],
   exports: [
-    RouterModule
+    RouterModule,
   ],
-  providers: [TournamentService,
+  providers: [
+    TournamentService,
     TournamentTypeService,
     PeopleService,
     TournamentPersonService,
-    DataSharingService],
+    DataSharingService,
+    TournamentViewHostDirective,
+    GeneratorService
+  ],
+  entryComponents: [
+    TournamentViewComponent,
+    PouleViewComponent,
+    KnockoutViewComponent,
+  ]
 })
 export class TournamentRoutingModule { }

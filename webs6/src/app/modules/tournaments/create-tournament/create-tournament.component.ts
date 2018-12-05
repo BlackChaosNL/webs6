@@ -1,13 +1,8 @@
-import { Person } from '../../../classes/person';
 import { Observable } from 'rxjs';
-import { Tournament } from '../../../classes/tournament';
+import {CompetitionType, Tournament} from '../../../classes/tournament';
 import { PeopleService } from '../../../services/people.service';
-import { TournamentType } from '../../../classes/tournamentType';
-import { TournamentPerson } from '../../../classes/tournamentPerson';
 import { Component, OnInit } from '@angular/core';
 import { TournamentService } from '../../../services/tournament.service';
-import { TournamentTypeService } from '../../../services/tournament-type.service';
-import { TournamentPersonService } from '../../../services/tournament-person.service';
 
 @Component({
   selector: 'app-tournament-create',
@@ -15,30 +10,29 @@ import { TournamentPersonService } from '../../../services/tournament-person.ser
 })
 export class CreateTournamentComponent implements OnInit {
   tournaments: Observable<any[]>;
-  types: Observable<any[]>;
+  types: any[];
   people: Observable<any[]>;
 
   newTournament: Tournament = new Tournament();
-  selectedPeople: string[];
+  selectedPeople: string[] = [];
 
-  constructor(private ps: TournamentService,
-    private type: TournamentTypeService,
-    private users: PeopleService,
-    private subscribe: TournamentPersonService) { }
+  constructor(private tournamentService: TournamentService,
+    private users: PeopleService) { }
 
   ngOnInit() {
-    this.tournaments = this.ps.getAll();
-    this.types = this.type.getAll();
+    this.tournaments = this.tournamentService.getAll();
+    this.types = Object.keys(CompetitionType);
     this.people = this.users.getAll();
   }
 
   resolve() {
-    // TODO: Check if invalid values are given
-    const value = this.ps.Add(this.newTournament);
-    console.log(this.selectedPeople);
-    for (var i = 0; i < this.selectedPeople.length; i++) {
-      this.subscribe.Add(new TournamentPerson(value, this.selectedPeople[i]));
-    }
+    this.selectedPeople.forEach(p => {
+      let data = p.split('/');
+        this.newTournament.participants.push({key: data[0], name: data[1]});
+    });
+
+    this.tournamentService.Add(this.newTournament);
     this.newTournament = new Tournament();
+    this.selectedPeople = [];
   }
 }

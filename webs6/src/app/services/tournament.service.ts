@@ -26,8 +26,7 @@ export class TournamentService implements BaseServiceProvider {
   }
 
   getSingleItem(key: any): Observable<any> {
-    return this.db.object(`/tournaments/${key}`).valueChanges()
-      ;
+    return this.db.object(`/tournaments/${key}`).valueChanges();
   }
 
   Add(item: Tournament) {
