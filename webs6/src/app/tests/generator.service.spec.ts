@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GeneratorService } from './generator.service';
+import { GeneratorService } from '../services/generator.service';
 
 describe('GeneratorService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

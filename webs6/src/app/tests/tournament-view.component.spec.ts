@@ -1,21 +1,21 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {PouleViewComponent} from './poule-view.component';
+import {TournamentViewComponent} from '../modules/tournaments/tournament-views/tournament-view/tournament-view.component';
 import {FormsModule} from "@angular/forms";
 
-describe('PouleViewComponent', () => {
-    let component: PouleViewComponent;
-    let fixture: ComponentFixture<PouleViewComponent>;
+describe('TournamentViewComponent', () => {
+    let component: TournamentViewComponent;
+    let fixture: ComponentFixture<TournamentViewComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [FormsModule],
-            declarations: [PouleViewComponent]
+            declarations: [TournamentViewComponent]
         }).compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(PouleViewComponent);
+        fixture = TestBed.createComponent(TournamentViewComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

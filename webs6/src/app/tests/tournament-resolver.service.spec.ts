@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TournamentResolverService } from './tournament-resolver.service';
+import { TournamentResolverService } from '../services/tournament-resolver.service';
 
 describe('TournamentResolverService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

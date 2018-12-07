@@ -1,6 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {KnockoutViewComponent} from './knockout-view.component';
+import {KnockoutViewComponent} from '../modules/tournaments/tournament-views/knockout-view/knockout-view.component';
 import {FormsModule} from "@angular/forms";
 
 describe('KnockoutViewComponent', () => {
