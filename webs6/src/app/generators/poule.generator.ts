@@ -1,7 +1,7 @@
 import { GeneratorInterface } from "./generator.interface";
 import { Tournament } from "../classes/tournament";
 import { PouleRoundGenerator } from "./poule-round.generator";
-import { CompetitionStatus } from '../classes/CompetitionStatus'
+import { CompetitionStatus } from '../classes/CompetitionStatus';
 import { Round } from '../classes/Round';
 
 export class PouleGenerator implements GeneratorInterface {
