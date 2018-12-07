@@ -4,6 +4,7 @@ import {TournamentViewComponent} from "../modules/tournaments/tournament-views/t
 import {PouleViewComponent} from "../modules/tournaments/tournament-views/poule-view/poule-view.component";
 import {TournamentViewHostDirective} from "../directives/tournament-view-host.directive";
 import {KnockoutViewComponent} from "../modules/tournaments/tournament-views/knockout-view/knockout-view.component";
+import {TournamentViewInterface} from "../modules/tournaments/tournament-views/tournament-view-interface";
 
 @Injectable({
     providedIn: 'root'
@@ -21,9 +22,10 @@ export class TournamentViewService {
         host.containerRef.clear();
         let factory = this.factoryResolver.resolveComponentFactory(this.views[tournament.type]);
         let component = host.containerRef.createComponent(factory);
+        let instance = (<TournamentViewInterface>component.instance);
 
-        component.instance.tournament = tournament;
-        component.instance.onEditTournament.subscribe(next => {
+        instance.tournament = tournament;
+        instance.onEditTournament.subscribe(next => {
             if (onCloseMatch != null) onCloseMatch();
         });
     }

@@ -1,13 +1,14 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Match, Tournament} from "../../../../classes/tournament";
 import {TournamentResolverService} from "../../../../services/tournament-resolver.service";
+import {TournamentViewInterface} from "../tournament-view-interface";
 
 @Component({
     selector: 'app-tournament-view',
     templateUrl: './tournament-view.component.html',
     styleUrls: ['./tournament-view.component.css']
 })
-export class TournamentViewComponent implements OnInit {
+export class TournamentViewComponent implements OnInit, TournamentViewInterface {
     @Input() tournament: Tournament;
     @Output() onEditTournament = new EventEmitter();
 

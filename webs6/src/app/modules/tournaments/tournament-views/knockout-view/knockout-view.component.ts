@@ -2,13 +2,14 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Match, Tournament} from "../../../../classes/tournament";
 import {TournamentResolverService} from "../../../../services/tournament-resolver.service";
 import {GeneratorService} from "../../../../services/generator.service";
+import {TournamentViewInterface} from "../tournament-view-interface";
 
 @Component({
     selector: 'app-knockout-view',
     templateUrl: './knockout-view.component.html',
     styleUrls: ['./knockout-view.component.css']
 })
-export class KnockoutViewComponent implements OnInit {
+export class KnockoutViewComponent implements OnInit, TournamentViewInterface {
     @Input() tournament: Tournament;
     @Output() onEditTournament = new EventEmitter();
 
