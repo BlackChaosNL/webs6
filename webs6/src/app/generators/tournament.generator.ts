@@ -1,6 +1,8 @@
 import { GeneratorInterface } from "./generator.interface";
-import { Round, Tournament, CompetitionStatus } from "../classes/tournament";
+import { Tournament } from "../classes/tournament";
 import { TournamentRoundGenerator } from "./tournament-round.generator";
+import { CompetitionStatus } from '../classes/CompetitionStatus';
+import { Round } from '../classes/Round';
 
 
 export class TournamentGenerator implements GeneratorInterface {

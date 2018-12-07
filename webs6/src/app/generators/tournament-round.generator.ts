@@ -1,5 +1,8 @@
 import { RoundGeneratorBase } from "./generator.interface";
-import { Match, Participant, Round } from "../classes/tournament";
+import { Participant } from "../classes/Participant";
+import { Round } from "../classes/Round";
+import { Match } from "../classes/Match";
+
 
 export class TournamentRoundGenerator extends RoundGeneratorBase {
   generate(round_nr: number): Round {

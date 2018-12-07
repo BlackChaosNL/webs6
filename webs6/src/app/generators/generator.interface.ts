@@ -1,4 +1,7 @@
-import { Participant, Round, Tournament } from "../classes/tournament";
+import { Tournament } from "../classes/tournament";
+import { Participant } from "../classes/Participant";
+import { Round } from "../classes/Round";
+
 
 export interface GeneratorInterface {
   canGenerate(tournament: Tournament): boolean;

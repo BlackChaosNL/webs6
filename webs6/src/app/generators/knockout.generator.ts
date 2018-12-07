@@ -1,5 +1,7 @@
 import { GeneratorInterface } from "./generator.interface";
-import { CompetitionStatus, Round, Tournament } from "../classes/tournament";
+import { Round } from "../classes/Round";
+import { Tournament } from "../classes/tournament";
+import { CompetitionStatus } from '../classes/CompetitionStatus';
 import { KnockoutRoundGenerator } from "./knockout-round.generator";
 
 

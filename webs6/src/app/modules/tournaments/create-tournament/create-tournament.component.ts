@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs';
-import {CompetitionType, Tournament} from '../../../classes/tournament';
+import { CompetitionType } from '../../../classes/CompetitionType';
+import { Tournament } from '../../../classes/tournament';
 import { PeopleService } from '../../../services/people.service';
 import { Component, OnInit } from '@angular/core';
 import { TournamentService } from '../../../services/tournament.service';
@@ -28,7 +29,7 @@ export class CreateTournamentComponent implements OnInit {
   resolve() {
     this.selectedPeople.forEach(p => {
       let data = p.split('/');
-        this.newTournament.participants.push({key: data[0], name: data[1]});
+      this.newTournament.participants.push({ key: data[0], name: data[1] });
     });
 
     this.tournamentService.Add(this.newTournament);

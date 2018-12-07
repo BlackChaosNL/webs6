@@ -1,4 +1,5 @@
-import { CompetitionStatus, Tournament } from "../../../classes/tournament";
+import { Tournament } from "../../../classes/tournament";
+import { CompetitionStatus } from '../../../classes/CompetitionStatus';
 
 export interface TournamentResolverInterface {
   canResolve(rounds: Tournament): boolean;

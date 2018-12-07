@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { KnockoutGenerator } from "../generators/knockout.generator";
-import { CompetitionType } from "../classes/tournament";
+import { CompetitionType } from "../classes/CompetitionType";
 import { PouleGenerator } from "../generators/poule.generator";
 import { TournamentGenerator } from "../generators/tournament.generator";
 

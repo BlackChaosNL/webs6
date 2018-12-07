@@ -1,5 +1,8 @@
-import { Match, Participant, Poule, Round } from "../classes/tournament";
+import { Poule } from "../classes/Poule";
 import { RoundGeneratorBase } from "./generator.interface";
+import { Participant } from "../classes/Participant";
+import { Round } from "../classes/Round";
+import { Match } from "../classes/Match";
 
 export class PouleRoundGenerator extends RoundGeneratorBase {
   generate(round_nr: number): Round {
