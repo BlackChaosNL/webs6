@@ -4,8 +4,7 @@ import {TestBed} from "@angular/core/testing";
 import {By} from "@angular/platform-browser";
 
 @Component({
-    template: `
-        <div app-tournament-view-host></div>`
+    template: '<div app-tournament-view-host></div>'
 })
 class TestComponent {
 }

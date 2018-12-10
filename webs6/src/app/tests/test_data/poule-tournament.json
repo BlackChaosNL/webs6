@@ -1,0 +1,205 @@
+{
+  "end": "1992-12-22T12:30",
+  "match_duration": 10,
+  "matches_per_round": 2,
+  "name": "My tournament",
+  "nr_of_poules": 2,
+  "nr_of_rounds": 2,
+  "participants": [
+    {
+      "key": "-LJYdilZOaWlJNIa5rIT",
+      "name": "Testy  McTestFace"
+    },
+    {
+      "key": "-LJn4VU_MRUks9ZOIC3A",
+      "name": "Test  McTestFace Jr"
+    },
+    {
+      "key": "-LJn4YWOKMDyVh6iyEeO",
+      "name": "Patriek  Spiek"
+    },
+    {
+      "key": "-LJn4_RPMRJYiKL2LCRe",
+      "name": "Jereon  Viegen"
+    }
+  ],
+  "poules": [
+    {
+      "number": 1,
+      "participants": [
+        {
+          "key": "-LJYdilZOaWlJNIa5rIT",
+          "name": "Testy  McTestFace"
+        },
+        {
+          "key": "-LJn4VU_MRUks9ZOIC3A",
+          "name": "Test  McTestFace Jr"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "participants": [
+        {
+          "key": "-LJn4YWOKMDyVh6iyEeO",
+          "name": "Patriek  Spiek"
+        },
+        {
+          "key": "-LJn4_RPMRJYiKL2LCRe",
+          "name": "Jereon  Viegen"
+        }
+      ]
+    }
+  ],
+  "rounds": [
+    {
+      "matches": [
+        {
+          "decided": false,
+          "duration": 10,
+          "end": "1992-12-21T12: 45",
+          "p1": {
+            "key": "-LJYdilZOaWlJNIa5rIT",
+            "name": "Testy  McTestFace"
+          },
+          "p1_score": 0,
+          "p2": {
+            "key": "-LJn4VU_MRUks9ZOIC3A",
+            "name": "Test  McTestFace Jr"
+          },
+          "p2_score": 0,
+          "poule_number": 1,
+          "start": "1992-12-21T12: 35"
+        },
+        {
+          "decided": false,
+          "duration": 10,
+          "end": "1992-12-21T13: 00",
+          "p1": {
+            "key": "-LJYdilZOaWlJNIa5rIT",
+            "name": "Testy  McTestFace"
+          },
+          "p1_score": 0,
+          "p2": {
+            "key": "-LJn4VU_MRUks9ZOIC3A",
+            "name": "Test  McTestFace Jr"
+          },
+          "p2_score": 0,
+          "poule_number": 1,
+          "start": "1992-12-21T12: 50"
+        },
+        {
+          "decided": false,
+          "duration": 10,
+          "end": "1992-12-21T13: 15",
+          "p1": {
+            "key": "-LJn4YWOKMDyVh6iyEeO",
+            "name": "Patriek  Spiek"
+          },
+          "p1_score": 0,
+          "p2": {
+            "key": "-LJn4_RPMRJYiKL2LCRe",
+            "name": "Jereon  Viegen"
+          },
+          "p2_score": 0,
+          "poule_number": 2,
+          "start": "1992-12-21T13: 05"
+        },
+        {
+          "decided": false,
+          "duration": 10,
+          "end": "1992-12-21T13: 30",
+          "p1": {
+            "key": "-LJn4YWOKMDyVh6iyEeO",
+            "name": "Patriek  Spiek"
+          },
+          "p1_score": 0,
+          "p2": {
+            "key": "-LJn4_RPMRJYiKL2LCRe",
+            "name": "Jereon  Viegen"
+          },
+          "p2_score": 0,
+          "poule_number": 2,
+          "start": "1992-12-21T13: 20"
+        }
+      ],
+      "number": 1
+    },
+    {
+      "matches": [
+        {
+          "decided": false,
+          "duration": 10,
+          "end": "1992-12-21T13: 45",
+          "p1": {
+            "key": "-LJYdilZOaWlJNIa5rIT",
+            "name": "Testy  McTestFace"
+          },
+          "p1_score": 0,
+          "p2": {
+            "key": "-LJn4VU_MRUks9ZOIC3A",
+            "name": "Test  McTestFace Jr"
+          },
+          "p2_score": 0,
+          "poule_number": 1,
+          "start": "1992-12-21T13:35"
+        },
+        {
+          "decided": false,
+          "duration": 10,
+          "end": "1992-12-21T14:00",
+          "p1": {
+            "key": "-LJYdilZOaWlJNIa5rIT",
+            "name": "Testy  McTestFace"
+          },
+          "p1_score": 0,
+          "p2": {
+            "key": "-LJn4VU_MRUks9ZOIC3A",
+            "name": "Test  McTestFace Jr"
+          },
+          "p2_score": 0,
+          "poule_number": 1,
+          "start": "1992-12-21T13: 50"
+        },
+        {
+          "decided": false,
+          "duration": 10,
+          "end": "1992-12-21T14: 15",
+          "p1": {
+            "key": "-LJn4YWOKMDyVh6iyEeO",
+            "name": "Patriek  Spiek"
+          },
+          "p1_score": 0,
+          "p2": {
+            "key": "-LJn4_RPMRJYiKL2LCRe",
+            "name": "Jereon  Viegen"
+          },
+          "p2_score": 0,
+          "poule_number": 2,
+          "start": "1992-12-21T14: 05"
+        },
+        {
+          "decided": false,
+          "duration": 10,
+          "end": "1992-12-21T14: 30",
+          "p1": {
+            "key": "-LJn4YWOKMDyVh6iyEeO",
+            "name": "Patriek  Spiek"
+          },
+          "p1_score": 0,
+          "p2": {
+            "key": "-LJn4_RPMRJYiKL2LCRe",
+            "name": "Jereon  Viegen"
+          },
+          "p2_score": 0,
+          "poule_number": 2,
+          "start": "1992-12-21T14: 20"
+        }
+      ],
+      "number": 2
+    }
+  ],
+  "start": "1992-12-21T12: 30",
+  "status": "Started",
+  "type": "Poule"
+}

@@ -22,7 +22,7 @@ export class EditTournamentComponent implements OnInit {
     private ts: TournamentService,
     private ps: PeopleService,
     private generatorService: GeneratorService,
-    private tournamentViewService: TournamentViewService) {
+    public tournamentViewService: TournamentViewService) {
   }
 
   private key: string = "";
@@ -39,6 +39,7 @@ export class EditTournamentComponent implements OnInit {
     this.details = new Tournament();
 
     this.ds.getTournament().subscribe(item => {
+      console.log(this.details);
       if (item != null) {
         this.key = item;
         this.ts.getSingleItem(item).subscribe(i => {
