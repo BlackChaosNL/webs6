@@ -36,7 +36,7 @@ describe('GeneratorService', () => {
         }
     }));
 
-    it('should be created', () => {
+    it('should create the GeneratorService', () => {
         expect(service).toBeTruthy();
     });
 
@@ -67,20 +67,6 @@ describe('GeneratorService', () => {
         expect(tournamentGenerator.canGenerate(tournament)).toBe(false);
         expect(pouleGenerator.canGenerate(poule)).toBe(false);
         expect(knockoutGenerator.canGenerate(knockout)).toBe(false);
-    });
-
-    it('should be able to generate a tournament when requirements are met', () => {
-        const tournamentGenerator: GeneratorInterface = service.getGenerator(CompetitionType.Tournament);
-        const pouleGenerator: GeneratorInterface = service.getGenerator(CompetitionType.Poule);
-        const knockoutGenerator: GeneratorInterface = service.getGenerator(CompetitionType.Knockout);
-
-        tournament.status = CompetitionStatus.Open;
-        poule.status = CompetitionStatus.Open;
-        knockout.status = CompetitionStatus.Open;
-
-        expect(tournamentGenerator.canGenerate(tournament)).toBe(true);
-        expect(pouleGenerator.canGenerate(poule)).toBe(true);
-        expect(knockoutGenerator.canGenerate(knockout)).toBe(true);
     });
 
     it('should be able to generate a tournament when requirements are met', () => {

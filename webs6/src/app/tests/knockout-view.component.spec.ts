@@ -20,7 +20,7 @@ describe('KnockoutViewComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+    it('should create the KnockoutViewComponent', () => {
         expect(component).toBeTruthy();
     });
 });

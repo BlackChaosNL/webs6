@@ -5,7 +5,7 @@ import { TournamentResolverService } from '../services/tournament-resolver.servi
 describe('TournamentResolverService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
-  it('should be created', () => {
+  it('should create the TournamentResolverService', () => {
     const service: TournamentResolverService = TestBed.get(TournamentResolverService);
     expect(service).toBeTruthy();
   });

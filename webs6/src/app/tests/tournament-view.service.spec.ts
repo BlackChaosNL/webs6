@@ -8,12 +8,8 @@ describe('TournamentViewService', () => {
 
     });
 
-    it('should be created', () => {
+    it('should create the TournamentViewService', () => {
         const service: TournamentViewService = TestBed.get(TournamentViewService);
         expect(service).toBeTruthy();
-    });
-
-    it('should expect TournamentViewService.get', () => {
-        const service: TournamentViewService = TestBed.get(TournamentViewService);
     });
 });

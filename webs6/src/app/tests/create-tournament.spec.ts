@@ -25,7 +25,7 @@ describe('CreateTournamentComponent', () => {
         }).compileComponents();
     }));
 
-    it('should create the component', () => {
+    it('should create the CreateTournamentComponent', () => {
         const fixture = TestBed.createComponent(CreateTournamentComponent);
         const instance = fixture.debugElement.componentInstance;
         expect(instance).toBeTruthy();

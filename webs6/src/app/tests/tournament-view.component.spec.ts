@@ -20,7 +20,7 @@ describe('TournamentViewComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+    it('should create the TournamentViewComponent', () => {
         expect(component).toBeTruthy();
     });
 });
