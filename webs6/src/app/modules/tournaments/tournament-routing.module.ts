@@ -1,3 +1,5 @@
+import { AuthGuard } from "../../services/auth-guard.service";
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -14,12 +16,18 @@ import { CreateTournamentComponent } from './create-tournament/create-tournament
 import { EditTournamentComponent } from './edit-tournament/edit-tournament.component';
 import { ShowTournamentComponent } from './show-tournament/show-tournament.component';
 
-import { AuthGuard } from "../../services/auth-guard.service";
-import {PouleViewComponent} from "./tournament-views/poule-view/poule-view.component";
-import {KnockoutViewComponent} from "./tournament-views/knockout-view/knockout-view.component";
-import {GeneratorService} from "../../services/generator.service";
-import {TournamentViewHostDirective} from "../../directives/tournament-view-host.directive";
-import {TournamentViewComponent} from "./tournament-views/tournament-view/tournament-view.component";
+import { GeneratorService } from "../../services/generator.service";
+
+import { PouleViewComponent } from "./tournament-views/poule-view/poule-view.component";
+import { KnockoutViewComponent } from "./tournament-views/knockout-view/knockout-view.component";
+import { TournamentViewComponent } from "./tournament-views/tournament-view/tournament-view.component";
+
+import { PouleDisplayComponent } from "./display-tournament/poule-view/poule-display.component";
+import { TournamentDisplayComponent } from "./display-tournament/tournament-view/tournament-display.component";
+import { KnockoutDisplayComponent } from "./display-tournament/knockout-view/knockout-display.component";
+
+import { TournamentViewHostDirective } from "../../directives/tournament-view-host.directive";
+import { TournamentDisplayDirective } from "../../directives/tournament-display.directive";
 
 const routes: Routes = [
   {
@@ -42,6 +50,10 @@ const routes: Routes = [
     PouleViewComponent,
     KnockoutViewComponent,
     TournamentViewHostDirective,
+    TournamentDisplayDirective,
+    PouleDisplayComponent,
+    TournamentDisplayComponent,
+    KnockoutDisplayComponent
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -64,6 +76,9 @@ const routes: Routes = [
     TournamentViewComponent,
     PouleViewComponent,
     KnockoutViewComponent,
+    PouleDisplayComponent,
+    TournamentDisplayComponent,
+    KnockoutDisplayComponent,
   ]
 })
 export class TournamentRoutingModule { }

@@ -14,13 +14,11 @@ export class KnockoutViewComponent implements OnInit, TournamentViewInterface {
   @Input() tournament: Tournament;
   @Output() onEditTournament = new EventEmitter();
 
-  constructor(private resolverService: TournamentResolverService, private generatorService: GeneratorService) {
-
+  constructor(private resolverService: TournamentResolverService,
+    private generatorService: GeneratorService) {
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   nextRound() {
     this.tournament.rounds = this.generatorService.getGenerator(this.tournament.type).generate(this.tournament);

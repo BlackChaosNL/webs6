@@ -19,7 +19,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only when enabled
+      { enableTracing: false } // <-- debugging purposes only when enabled
     )
   ],
   exports: [
