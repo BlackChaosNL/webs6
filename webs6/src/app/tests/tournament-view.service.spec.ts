@@ -5,7 +5,6 @@ import {TournamentViewService} from '../services/tournament-view.service';
 describe('TournamentViewService', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({});
-
     });
 
     it('should create the TournamentViewService', () => {

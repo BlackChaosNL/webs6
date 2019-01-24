@@ -2,10 +2,12 @@ import {TestBed, async} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppComponent} from '../app.component';
 import {WebStorageModule} from "ngx-store";
-import {SessionStorageService} from "ngx-store";
-import {assertEqual} from "@angular/core/src/render3/assert";
+import {AppAuthService} from "../services/app-auth.service";
+
 
 describe('Main App (AppComponent)', () => {
+    let service;
+
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [
@@ -15,7 +17,10 @@ describe('Main App (AppComponent)', () => {
             declarations: [
                 AppComponent
             ],
+            providers: [{provide: AppAuthService, useValue: service}]
         }).compileComponents();
+
+        service = TestBed.get(AppAuthService);
     }));
 
     it('Should create the app', async(() => {
@@ -26,12 +31,7 @@ describe('Main App (AppComponent)', () => {
 
     it('Should show a menu bar', async(() => {
         const fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
         expect(fixture.debugElement.nativeElement.querySelector('.navbar-brand').textContent)
             .toContain('Epic Tournament System');
-    }));
-
-    it("should have a router added", async(() => {
-        const fixture = TestBed.createComponent(AppComponent);
     }));
 });
