@@ -46,8 +46,7 @@ export class EditTournamentComponent implements OnInit {
           this.details = i != null ? i : new Tournament();
           this.setGenerator(this.details.type);
           this.tournamentViewService.createView(this.tournamentViewHost, this.details, () => {
-            console.log('OnEdit handled from EditTournamentService');
-            // this.save();
+            this.save();
           });
         });
       }
@@ -100,7 +99,7 @@ export class EditTournamentComponent implements OnInit {
   generate() {
     this.details.rounds = this.generator.generate(this.details);
     this.details.status = CompetitionStatus.Started;
-    // this.ts.Edit(this.key, this.details);
+    this.ts.Edit(this.key, this.details);
   }
 
   private tournamentHasParticipant(key: string): boolean {

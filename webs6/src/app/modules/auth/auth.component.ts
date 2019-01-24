@@ -1,56 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
-import { SessionStorageService } from "ngx-store";
-
-import {
-  AuthService,
-  GoogleLoginProvider
-} from "angular-6-social-login";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {AppAuthService} from "../../services/app-auth.service";
+import {Subscription} from "rxjs/index";
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+    selector: 'app-auth',
+    templateUrl: './auth.component.html',
+    styleUrls: ['./auth.component.css']
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent implements OnInit, OnDestroy {
+    private sub: Subscription;
 
-  constructor(
-    private socialAuthService: AuthService,
-    private session: SessionStorageService,
-    private router: Router
-  ) { }
-
-  ngOnInit() { }
-
-  public socialSignIn(
-    socialPlatform: string
-  ) {
-    let socialPlatformProvider = this.getPlatform(socialPlatform);
-
-    this.socialAuthService
-      .signIn(socialPlatformProvider)
-      .then(data => {
-        // Set important data for session keeping
-        this.session.set("auth.id", data.id);
-        this.session.set("auth.token", data.token);
-
-        // Add additional data here
-        this.session.set("auth.name", data.name);
-
-        // Redirect?
-        this.router.navigate(["/"]);
-      })
-      ;
-  }
-
-  private getPlatform(
-    name: string
-  ) {
-    if (name == "google") {
-      return GoogleLoginProvider.PROVIDER_ID;
+    constructor(private auth: AppAuthService,
+                private route: ActivatedRoute,
+                private router: Router) {
     }
 
-    throw Error("No support for unknown platform: " + name);
-  }
+    ngOnInit() {
+        this.sub = this.auth.onLogin.subscribe(() => {
+            this.router.navigate([this.route.snapshot.queryParams['for'] || '/'])
+        });
+    }
 
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+
+    public login() {
+        this.auth.login();
+    }
 }

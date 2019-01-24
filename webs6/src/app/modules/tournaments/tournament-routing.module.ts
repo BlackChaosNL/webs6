@@ -1,5 +1,3 @@
-import { AuthGuard } from "../../services/auth-guard.service";
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -28,15 +26,15 @@ import { KnockoutDisplayComponent } from "./display-tournament/knockout-view/kno
 
 import { TournamentViewHostDirective } from "../../directives/tournament-view-host.directive";
 import { TournamentDisplayDirective } from "../../directives/tournament-display.directive";
+import {AuthGuard} from "../../services/auth-guard.service";
 
 const routes: Routes = [
   {
     path: 'tournament',
     component: ShowTournamentComponent,
-    canActivate: [AuthGuard]
   },
-  { path: 'tournament/edit', component: EditTournamentComponent },
-  { path: 'tournament/create', component: CreateTournamentComponent },
+  { path: 'tournament/edit', component: EditTournamentComponent, canActivate: [AuthGuard] },
+  { path: 'tournament/create', component: CreateTournamentComponent, canActivate: [AuthGuard] },
   { path: 'tournament/:id/view', component: ShowTournamentComponent },
 ];
 

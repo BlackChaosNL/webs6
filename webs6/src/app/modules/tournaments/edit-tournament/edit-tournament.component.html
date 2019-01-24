@@ -21,7 +21,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="mr-sm-2" for="sdate">Set the date for the tournament</label>
+					<label class="mr-sm-2" for="sdate">Set the start date for the tournament</label>
 					<input type="datetime-local" max="2020-12-31T00:00:00" min="2017-01-01T:00:00:00" class="form-control" id="sdate" [(ngModel)]="details.start" date="date" required>
 				</div>
 
@@ -47,12 +47,12 @@
 					<input id="nr_of_poules" class="form-control" [(ngModel)]="details.nr_of_poules" type="number" min="1" [disabled]="details.status != 'Open'" />
 				</div>
 
-				<div class="form-group">
+				<div class="form-group" [hidden]="details.type == 'Knockout'">
 					<label for="nr_of_rounds" class="mr-sm-2">Set number of rounds</label>
 					<input id="nr_of_rounds" class="form-control" [(ngModel)]="details.nr_of_rounds" type="number" min="1" [disabled]="details.status != 'Open'" />
 				</div>
 
-				<div class="form-group">
+				<div class="form-group" [hidden]="details.type == 'Knockout'">
 					<label for="matches_per_round" class="mr-sm-2">Set matches per round</label>
 					<input id="matches_per_round" class="form-control" [(ngModel)]="details.matches_per_round" type="number" min="1" [disabled]="details.status != 'Open'" />
 				</div>

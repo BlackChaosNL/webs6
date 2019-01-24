@@ -66,6 +66,10 @@ export class KnockoutViewComponent implements OnInit, TournamentViewInterface {
     return this.resolverService.canResolve(this.tournament);
   }
 
+  endTournament() {
+    this.resolverService.resolve(this.tournament);
+    this.onEditTournament.emit();
+  }
   closeMatch(match: Match) {
     this.resolverService.closeMatch(match);
     this.onEditTournament.emit();

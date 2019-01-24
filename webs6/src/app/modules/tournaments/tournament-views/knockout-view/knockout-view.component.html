@@ -1,11 +1,11 @@
 <!--suppress HtmlFormInputWithoutLabel -->
-<ng-container *ngIf="tournament?.status == 'Started' && tournament?.rounds?.length > 0">
+<ng-container *ngIf="tournament?.status !== 'Open' && tournament?.rounds?.length > 0">
     <div class="row">
         <div class="col-12">
             <hr>
             <button (click)="endTournament()"
                     [disabled]="!canEndTournament()"
-                    [hidden]="!showEndButton()"
+                    [hidden]="!showEndButton() || tournament?.status === 'Finished'"
                     class="btn btn-primary">
                 End tournament
             </button>

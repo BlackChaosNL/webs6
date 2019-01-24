@@ -3,46 +3,27 @@ import { Injectable } from "@angular/core";
 import { SessionStorageService } from "ngx-store";
 
 import {
-  CanActivate,
-  Router
+    ActivatedRouteSnapshot,
+    CanActivate,
+    Router, RouterStateSnapshot
 } from "@angular/router";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-
   constructor(
     private router: Router,
     private session: SessionStorageService
   ) { }
 
-  canActivate() {
-    let id = this.session.get("auth.id");
-    let token = this.session.get("auth.token");
-
-    if (this.verifyAuth(id, token)) {
-      return true;
-    }
-
-    // In case user is not verified.
-
-    this.session.set("auth.redirect", this.router.url);
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (this.session.get('auth.user') !== null) return true;
 
     this.router.navigate(["/auth"], {
       queryParams: {
-        // TODO: This currently seems to always redirect to /
-        for: encodeUrl(this.router.url)
+        for: encodeUrl(state.url)
       }
     });
+
+    return false;
   }
-
-  private verifyAuth(
-    id: string,
-    token: string
-  ) {
-    if (!id) { return false; }
-    if (!token) { return false; }
-
-    return true;
-  }
-
 }
