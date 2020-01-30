@@ -1,0 +1,69 @@
+{
+  "match_duration": 10,
+  "matches_per_round": 1,
+  "name": "asdfafsadsfa",
+  "nr_of_poules": 1,
+  "nr_of_rounds": 1,
+  "participants": [
+    {
+      "key": "-LJYdilZOaWlJNIa5rIT",
+      "name": "Testy  McTestFace"
+    },
+    {
+      "key": "-LJn4VU_MRUks9ZOIC3A",
+      "name": "Test  McTestFace Jr"
+    },
+    {
+      "key": "-LJn4YWOKMDyVh6iyEeO",
+      "name": "Patriek  Spiek"
+    },
+    {
+      "key": "-LKRNOX4c5o1w9xbsoYO",
+      "name": "Stijn  Smulders"
+    }
+  ],
+  "rounds": [
+    {
+      "matches": [
+        {
+          "decided": false,
+          "duration": 10,
+          "end": "1992-12-21T12:45",
+          "p1": {
+            "key": "-LJYdilZOaWlJNIa5rIT",
+            "name": "Testy  McTestFace"
+          },
+          "p1_score": 0,
+          "p2": {
+            "key": "-LJn4VU_MRUks9ZOIC3A",
+            "name": "Test  McTestFace Jr"
+          },
+          "p2_score": 0,
+          "poule_number": 1,
+          "start": "1992-12-21T12:35"
+        },
+        {
+          "decided": false,
+          "duration": 10,
+          "end": "1992-12-21T13:00",
+          "p1": {
+            "key": "-LJn4YWOKMDyVh6iyEeO",
+            "name": "Patriek  Spiek"
+          },
+          "p1_score": 0,
+          "p2": {
+            "key": "-LKRNOX4c5o1w9xbsoYO",
+            "name": "Stijn  Smulders"
+          },
+          "p2_score": 0,
+          "poule_number": 1,
+          "start": "1992-12-21T12:50"
+        }
+      ],
+      "number": 1
+    }
+  ],
+  "start": "1992-12-21T12:30",
+  "status": "Started",
+  "type": "Tournament"
+}

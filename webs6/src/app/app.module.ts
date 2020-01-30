@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { environment } from '../environments/environment';
 
 import { WebStorageModule } from "ngx-store";
@@ -22,6 +21,7 @@ import {
 } from "angular-6-social-login";
 import { AuthComponent } from './modules/auth/auth.component';
 import { AuthGuard } from "./services/auth-guard.service";
+import {AppAuthService} from "./services/app-auth.service";
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig([
@@ -52,6 +52,7 @@ export function getAuthServiceConfigs() {
   ],
   providers: [
     AuthGuard,
+    AppAuthService,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs,

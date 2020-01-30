@@ -13,44 +13,93 @@
 
 	<div class="col">
 		<div class="card text-center">
-			<div class="card-header"> Change an existing tournament! </div>
+			<div class="card-header"> Change an existing tournament!</div>
 			<div class="card-body col-auto">
 				<div class="form-group">
 					<label for="tournamentName">Tournament Name</label>
-					<input type="text" class="form-control" id="tournamentName" placeholder="Name of your new tournament" [(ngModel)]="details.name" name="name" required>
+					<input class="form-control" id="tournamentName" placeholder="Name of your new tournament" [(ngModel)]="details.name" name="name" required>
 				</div>
 
 				<div class="form-group">
-					<label class="mr-sm-2" for="date">Select the date for the tournament</label>
-					<input type="date" max="2020-12-31" min="2017-01-01" class="form-control" id="date" [(ngModel)]="details.date" date="date" required>
+					<label class="mr-sm-2" for="sdate">Set the start date for the tournament</label>
+					<input type="datetime-local" max="2020-12-31T00:00:00" min="2017-01-01T:00:00:00" class="form-control" id="sdate" [(ngModel)]="details.start" date="date" required>
+				</div>
+
+				<div class="form-group">
+					<label class="mr-sm-2" for="edate">Set the end date for the tournament</label>
+					<input type="datetime-local" max="2020-12-31T00:00:00" min="2017-01-01T:00:00:00" class="form-control" id="edate" [(ngModel)]="details.end" date="date" required>
+				</div>
+
+				<div class="form-group">
+					<label class="mr-sm-2">Tournament status</label>
+					<input class="form-control" [(ngModel)]="details.status" disabled />
 				</div>
 
 				<div class="form-group">
 					<label class="mr-sm-2" for="type">Select your tournament type</label>
-					<select class="form-control" id="type" [(ngModel)]="details.type" required>
-						<option *ngFor="let type of types | async" [(ngValue)]="type.key">{{type.name}}</option>
+					<select (input)="setGenerator($event.target.value)" class="form-control" id="type" [(ngModel)]="details.type" [disabled]="details.status !== 'Open'" required>
+						<option *ngFor="let type of types" [value]="type">{{type}}</option>
 					</select>
+				</div>
+
+				<div class="form-group" [hidden]="details.type !== 'Poule'">
+					<label for="nr_of_poules" class="mr-sm-2">Set number of poules</label>
+					<input id="nr_of_poules" class="form-control" [(ngModel)]="details.nr_of_poules" type="number" min="1" [disabled]="details.status != 'Open'" />
+				</div>
+
+				<div class="form-group" [hidden]="details.type == 'Knockout'">
+					<label for="nr_of_rounds" class="mr-sm-2">Set number of rounds</label>
+					<input id="nr_of_rounds" class="form-control" [(ngModel)]="details.nr_of_rounds" type="number" min="1" [disabled]="details.status != 'Open'" />
+				</div>
+
+				<div class="form-group" [hidden]="details.type == 'Knockout'">
+					<label for="matches_per_round" class="mr-sm-2">Set matches per round</label>
+					<input id="matches_per_round" class="form-control" [(ngModel)]="details.matches_per_round" type="number" min="1" [disabled]="details.status != 'Open'" />
+				</div>
+
+				<div class="form-group">
+					<label for="match_duration" class="mr-sm-2">Set match duration</label>
+					<input id="match_duration" class="form-control" [(ngModel)]="details.match_duration" type="number" min="1" [disabled]="details.status != 'Open'" />
 				</div>
 
 				<div class="form-group">
 					<label for="users">Select users to remove out of the tournament</label>
-					<select class="form-control" id="users" [(ngModel)]="removePeople" multiple required>
-						<option *ngFor="let person of subscribedPeople | async" [(ngValue)]="person.key">
-							{{ (person.resolvedperson | async)?.name }} {{ (person.resolvedperson | async)?.surname}}
+					<select class="form-control" id="users" [(ngModel)]="participantsToRemove" [disabled]="details.status != 'Open'" multiple required>
+						<option *ngFor="let person of details.participants" [(ngValue)]="person.key + '/' + person.name">
+							{{person.name}}
 						</option>
 					</select>
 				</div>
-
 				<div class="form-group">
-					<label for="users">Select users to participate</label>
-					<select class="form-control" id="users" [(ngModel)]="selectedPeople" multiple required>
-						<option *ngFor="let person of people | async" [(ngValue)]="person.key"> {{person.name}} {{person.surname}} </option>
-					</select>
+					<div [hidden]="details.status != 'Open'" (click)="removeParticipants()" class="btn btn-danger btn-block">
+						Remove
+					</div>
 				</div>
 
+				<div class="form-group">
+					<label for="participants">Select users to participate</label>
+					<select class="form-control" id="participants" [(ngModel)]="participantsToAdd" multiple required [disabled]="details.status != 'Open'">
+						<option *ngFor="let person of people | async" [(ngValue)]="person.key + '/' + person.name + ' ' + person.surname">
+							{{person.name + ' ' + person.surname}}
+						</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<div [hidden]="details.status != 'Open'" (click)="addParticipants()" class="btn btn-success btn-block">
+						Add
+					</div>
+				</div>
+
+				<button (click)="generate()" class="btn btn-primary" [disabled]="generator === null || generator.canGenerate(details) !== true" [hidden]="details.status != 'Open'">
+					Generate Tournament
+				</button> &nbsp;
+				<button (click)="save()" class="btn btn-info">Save Tournament</button> &nbsp;
 				<button (click)="remove()" class="btn btn-destroy">Remove Tournament</button> &nbsp;
-				<button (click)="resolve()" class="btn btn-primary">Edit Tournament</button>
 			</div>
 		</div>
+	</div>
+	<div class="col-xs-12">
+		<hr>
+		<ng-template app-tournament-view-host></ng-template>
 	</div>
 </div>

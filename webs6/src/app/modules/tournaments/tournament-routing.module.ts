@@ -14,16 +14,27 @@ import { CreateTournamentComponent } from './create-tournament/create-tournament
 import { EditTournamentComponent } from './edit-tournament/edit-tournament.component';
 import { ShowTournamentComponent } from './show-tournament/show-tournament.component';
 
-import { AuthGuard } from "../../services/auth-guard.service";
+import { GeneratorService } from "../../services/generator.service";
+
+import { PouleViewComponent } from "./tournament-views/poule-view/poule-view.component";
+import { KnockoutViewComponent } from "./tournament-views/knockout-view/knockout-view.component";
+import { TournamentViewComponent } from "./tournament-views/tournament-view/tournament-view.component";
+
+import { PouleDisplayComponent } from "./display-tournament/poule-view/poule-display.component";
+import { TournamentDisplayComponent } from "./display-tournament/tournament-view/tournament-display.component";
+import { KnockoutDisplayComponent } from "./display-tournament/knockout-view/knockout-display.component";
+
+import { TournamentViewHostDirective } from "../../directives/tournament-view-host.directive";
+import { TournamentDisplayDirective } from "../../directives/tournament-display.directive";
+import {AuthGuard} from "../../services/auth-guard.service";
 
 const routes: Routes = [
   {
     path: 'tournament',
     component: ShowTournamentComponent,
-    canActivate: [AuthGuard]
   },
-  { path: 'tournament/edit', component: EditTournamentComponent },
-  { path: 'tournament/create', component: CreateTournamentComponent },
+  { path: 'tournament/edit', component: EditTournamentComponent, canActivate: [AuthGuard] },
+  { path: 'tournament/create', component: CreateTournamentComponent, canActivate: [AuthGuard] },
   { path: 'tournament/:id/view', component: ShowTournamentComponent },
 ];
 
@@ -33,6 +44,14 @@ const routes: Routes = [
     CreateTournamentComponent,
     EditTournamentComponent,
     ShowTournamentComponent,
+    TournamentViewComponent,
+    PouleViewComponent,
+    KnockoutViewComponent,
+    TournamentViewHostDirective,
+    TournamentDisplayDirective,
+    PouleDisplayComponent,
+    TournamentDisplayComponent,
+    KnockoutDisplayComponent
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -40,12 +59,24 @@ const routes: Routes = [
     CommonModule
   ],
   exports: [
-    RouterModule
+    RouterModule,
   ],
-  providers: [TournamentService,
+  providers: [
+    TournamentService,
     TournamentTypeService,
     PeopleService,
     TournamentPersonService,
-    DataSharingService],
+    DataSharingService,
+    TournamentViewHostDirective,
+    GeneratorService
+  ],
+  entryComponents: [
+    TournamentViewComponent,
+    PouleViewComponent,
+    KnockoutViewComponent,
+    PouleDisplayComponent,
+    TournamentDisplayComponent,
+    KnockoutDisplayComponent,
+  ]
 })
 export class TournamentRoutingModule { }

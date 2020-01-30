@@ -1,0 +1,80 @@
+<!--suppress HtmlFormInputWithoutLabel -->
+<ng-container *ngIf="tournament?.status !== 'Open' && tournament?.rounds?.length > 0">
+    <div class="row">
+        <div class="col-12">
+            <hr>
+            <button (click)="endTournament()"
+                    [disabled]="!canEndTournament()"
+                    [hidden]="!showEndButton() || tournament?.status === 'Finished'"
+                    class="btn btn-primary">
+                End tournament
+            </button>
+            <button (click)="nextRound()"
+                    [hidden]="getNumberOfRounds().length == tournament.rounds.length"
+                    [disabled]="!canGenerateNext()"
+                    class="btn btn-primary">
+                Next round
+            </button>
+            <hr>
+        </div>
+    </div>
+    <ng-container *ngFor="let round of tournament.rounds">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header"><h4>Round {{round.number}}</h4></div>
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-3 match-detail-element" *ngFor="let match of round.matches">
+                                <div class="row text-center">
+                                    <div class="col-5">{{match.p1.name}}</div>
+                                    <div class="col-2">VS</div>
+                                    <div class="col-5">{{match.p2.name}}</div>
+                                    <div class="col-12">
+                                        <hr>
+                                        <button [hidden]="match.decided"
+                                                [disabled]="!hasWinner(match)"
+                                                (click)="closeMatch(match)"
+                                                class="btn btn-primary">
+                                            Close
+                                        </button>
+                                        <div [hidden]="!match.decided">
+                                            {{match.winner != null ? 'Winner is ' + match.winner : 'draw'}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <hr/>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-12"></div>
+                                    <div class="col-5">
+                                        <input [disabled]="match.decided" class="form-control" min="0" type="number"
+                                               [(ngModel)]="match.p1_score">
+                                    </div>
+                                    <div class="col-2">-</div>
+                                    <div class="col-5">
+                                        <input [disabled]="match.decided" class="form-control" min="0" type="number"
+                                               [(ngModel)]="match.p2_score">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <hr/>
+                                </div>
+                                <div class="col text-center">
+                                    From: <input [disabled]="match.decided" type="datetime-local"
+                                                 [(ngModel)]="match.start"
+                                                 class="form-control">
+                                </div>
+                                <div class="col text-center">
+                                    To: <input [disabled]="match.decided" type="datetime-local" [(ngModel)]="match.end"
+                                               class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>

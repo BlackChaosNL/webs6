@@ -23,4 +23,13 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
   	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
+<script>
+    Date.prototype.toCustomISOString = function () {
+        return this.getFullYear() + '-' +
+            (this.getMonth() > 9 ? this.getMonth() : '0' + (this.getMonth() + 1)) + '-' +
+            (this.getDate() > 9 ? this.getDate() : '0' + this.getDate()) +
+            'T' + (this.getHours() > 9 ? this.getHours() : '0' + this.getHours()) +
+            ':' + (this.getUTCMinutes() > 9 ? this.getUTCMinutes() : '0' + this.getUTCMinutes());
+    }
+</script>
 </html>
